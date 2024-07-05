@@ -1,0 +1,198 @@
+@import "../mixins";
+
+////////////////////////////////////////////////
+/// Hero
+/////////
+.about_hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  overflow: hidden;
+  .text {
+    max-width: 52.5rem;
+    justify-self: end;
+    margin-right: 4.5rem;
+    margin-left: 2rem;
+    .heading-primary {
+      margin-bottom: 4rem;
+    }
+    .description:first-of-type {
+      margin-bottom: 2.4rem;
+    }
+  }
+  .picture {
+    position: relative;
+    height: 60.9rem;
+  }
+  .img {
+    background: url(../assets/about-hero.jpg) no-repeat;
+    background-size: contain;
+    position: absolute; /* Position the overflowing element absolutely */
+    left: 0; /* Position the element beyond the container's width */
+    top: 0; /* Optionally, adjust vertical position as needed */
+    width: 81.2rem;
+    height: 60.9rem;
+  }
+}
+////////////////////////////////////////////////
+/// Statistics
+///////////////
+.about_statistics {
+  display: flex;
+  gap: 3rem;
+}
+.stat_item {
+  width: 27rem;
+  height: 23rem;
+  padding-top: 3rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--animation);
+  &:hover {
+    background-color: var(--c-primary);
+    .stat_icon {
+      background-color: var(--c-white);
+      box-shadow: 0rem 0rem 0rem 1rem rgba(255, 255, 255, 0.3);
+      & * {
+        stroke: black;
+      }
+    }
+    .stat_num,
+    .stat_txt {
+      color: var(--c-white);
+    }
+  }
+}
+.stat_icon {
+  box-sizing: content-box;
+  background-color: var(--c-black);
+  border-radius: 50%;
+  padding: 0.8rem;
+  box-shadow: 0rem 0rem 0rem 1rem rgba(0, 0, 0, 0.3);
+  & * {
+    stroke: var(--c-off-white);
+  }
+}
+.stat_item:nth-of-type(3) .stat_icon *,
+.stat_item:nth-of-type(4) .stat_icon * {
+  fill: var(--c-off-white);
+}
+.stat_item:nth-of-type(3):hover .stat_icon *,
+.stat_item:nth-of-type(4):hover .stat_icon * {
+  fill: var(--c-black);
+}
+
+.stat_num {
+  @include font(3.2rem, 3rem, 700);
+  letter-spacing: 0.4px;
+  margin: 2.4rem auto 1.2rem;
+}
+.stat_txt {
+  @include font(1.6rem, 2.4rem);
+}
+////////////////////////////////////////////////
+/// Managers
+/////////////
+.about_carousel {
+  overflow: hidden;
+}
+.about_managers {
+  display: flex;
+  gap: 3rem;
+  transition: var(--animation) ease-out;
+}
+.manager {
+  .name {
+    @include font(3.2rem, 3rem, 500);
+    font-family: var(--f-inter);
+    letter-spacing: 0.4px;
+    margin: 3.2rem 0 0.8rem;
+  }
+  .title {
+    @include font(1.6rem, 2.4rem);
+  }
+  a {
+    transition: var(--animation);
+  }
+  a:hover {
+    transform: scale(1.2);
+  }
+}
+.manager_imgFrame {
+  display: inline-block;
+  height: 43rem;
+  width: 37rem;
+  overflow: hidden;
+  .manager_img {
+    max-width: 100%;
+  }
+}
+.manager_links {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 1.6rem;
+}
+@media (max-width: 75em) {
+  .heading-primary {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  .about_statistics {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .about_managers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+  .manager:last-child {
+    grid-column: span 2;
+  }
+  .carousel_btns {
+    display: none;
+  }
+}
+@media (max-width: 59em) {
+  .about_hero {
+    grid-template-columns: 1fr;
+    margin: 3.6rem;
+    .text {
+      justify-self: start;
+      margin-right: 0rem;
+      margin-left: 0rem;
+    }
+    .picture {
+      height: 60.9rem;
+    }
+    .img {
+      position: absolute; /* Position the overflowing element absolutely */
+    }
+  }
+  .about_managers {
+    grid-template-columns: 1fr;
+  }
+  .manager:last-child {
+    grid-column: span 1;
+  }
+}
+@media (max-width: 37em) {
+  .about_hero .picture,
+  .about_hero .img {
+    height: 38.9rem;
+  }
+  .about_managers {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .manager_imgFrame {
+    height: 27rem;
+    width: 27rem;
+  }
+  .carousel_btns {
+    display: none;
+  }
+}

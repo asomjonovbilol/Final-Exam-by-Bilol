@@ -1,0 +1,135 @@
+@import "./mixins";
+/**************************/
+/* ABOVE 2000px  (huge screens) */
+/**************************/
+@media (min-width: 125em) {
+  body .btn-up {
+    left: 80%;
+  }
+  .registration_wrapper .registration_img {
+    width: 50%;
+    justify-self: end;
+  }
+}
+
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px  */
+    font-size: 56.25%;
+  }
+  .btn-outline {
+    padding: 1rem 2rem;
+  }
+  .banner .container {
+    justify-items: start;
+  }
+  .banner_select {
+    position: absolute;
+    right: 4rem;
+  }
+  .container {
+    padding: 0 2rem;
+    max-width: 90%;
+  }
+  .account_header.container {
+    max-width: 100%;
+    padding: 0rem;
+  }
+  .breadcrumb.container {
+    padding: 4rem 0rem 2rem;
+  }
+
+  .pdtList {
+    flex-shrink: 1;
+  }
+  .pdtList,
+  .categories_Wrapper {
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .footer .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 7rem 0 5rem;
+    height: 60rem;
+  }
+  .footer_col:nth-child(2) {
+    max-width: 90%;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 3rem;
+  }
+  .justForU .pdtList {
+    flex-wrap: wrap;
+  }
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+@media (max-width: 59em) {
+  html {
+    /* 8px / 16px = 0.5 = 50% */
+    font-size: 50%;
+  }
+  .banner {
+    height: 100%;
+  }
+  .banner .container {
+    max-width: 100%;
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    p {
+      margin-top: 3rem;
+    }
+  }
+  .banner_select {
+    top: 1rem;
+    right: 1rem;
+  }
+  .btn-primary {
+    padding: 1.2rem 4rem;
+  }
+  .features {
+    flex-direction: column;
+    gap: 6.8rem;
+  }
+  .footer .container {
+    height: 103rem;
+  }
+  .footer_col:nth-child(2) {
+    align-items: center;
+    gap: 4rem;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/**************************/
+/* BELOW 592px (Phones) */
+/**************************/
+@media (max-width: 37em) {
+  .banner .container p {
+    max-width: 31rem;
+  }
+  .mobileNav_btn--menue,
+  .mobileNav_btn--close {
+    top: 11.5rem;
+  }
+  .footer .container {
+    height: 128.6rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 4rem;
+  }
+}

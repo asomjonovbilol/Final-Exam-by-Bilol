@@ -1,0 +1,172 @@
+@import "../mixins";
+
+.cart_pdts_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-bottom: 2.4rem;
+}
+.cart_header.container {
+  margin-bottom: 4rem;
+}
+.cart_header,
+.pdtCart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  box-shadow: 1px 0 13px rgba(0, 0, 0, 0.1);
+  padding: 2.4rem 4rem;
+  @include font(1.6rem, 2.4rem);
+}
+
+.cart_header p:first-child,
+.pdtCart div:first-child {
+  justify-self: start;
+}
+.cart_header p:last-child,
+.pdtCart p:last-child {
+  justify-self: end;
+}
+.pdtCart p:last-child {
+  margin-right: 2.6rem;
+}
+.pdtCart_info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+.pdtcart_info--deleted::before {
+  content: url("../assets/icons/delete.svg");
+  position: absolute;
+  top: -1.2rem;
+  left: -1.2rem;
+  z-index: 2;
+}
+.pdtCart_img {
+  width: 5.4rem;
+  height: 5.4rem;
+}
+.pdtCart_counter {
+  width: 7.2rem;
+  height: 4.4rem;
+  padding: 0.6rem 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border: 1px solid var(--bg-black-transparent);
+  border-radius: var(--radius);
+  p {
+    grid-row: span 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+.emptyCart {
+  box-shadow: 1px 0 13px rgba(0, 0, 0, 0.1);
+  padding: 14rem 4rem;
+  @include font(1.6rem, 2.4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart_btns,
+.cart_coupon_total_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cart_total_box {
+  width: 47rem;
+  padding: 3.2rem 2.4rem;
+  border: 1.5px solid var(--c-black);
+  .total_heading {
+    margin-bottom: 2.4rem;
+    @include font(2rem, 2.8rem, 500);
+  }
+  .btn-primary {
+    margin-top: 1.6rem;
+  }
+}
+@media (max-width: 75em) {
+  .cart_header.container {
+    padding: 2.4rem 4rem;
+    max-width: 100%;
+  }
+  .cart_coupon_total_wrapper {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 59em) {
+  .cart_wrapper.container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  .cart_header,
+  .pdtCart {
+    padding: 1.4rem 1rem;
+  }
+}
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+@media (max-width: 44em) {
+  .pdtCart {
+    padding: 1.4rem 1rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.4rem;
+  }
+  .pdtCart div:first-child {
+    justify-self: center;
+  }
+  .pdtCart p:last-child {
+    margin-right: 0;
+    justify-self: center;
+  }
+  .cart_header {
+    display: none;
+  }
+  .pdtCart .subTotal::before {
+    content: "Price:";
+  }
+  .pdtCart .total::before {
+    content: "Subtotal:";
+  }
+}
+@media (max-width: 37em) {
+  .pdtCart {
+    justify-items: start;
+  }
+  .pdtCart div:first-child,
+  .pdtCart p:last-child {
+    justify-self: start;
+  }
+  .cart_btns {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .coupon_wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cart_total_box {
+    width: auto;
+  }
+  .account_checkIcon_box {
+    flex-shrink: 0;
+  }
+  .checkout_pdt {
+    max-width: 42.5rem;
+    width: auto;
+    gap: 1.6rem;
+  }
+  .method_wrapper div {
+    gap: 0.6rem;
+  }
+}

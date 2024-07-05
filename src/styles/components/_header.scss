@@ -1,0 +1,322 @@
+@import "../mixins";
+
+////////////////////////////////////////////////
+/// BANNER
+////////////
+.banner {
+  background-color: #000;
+  height: 4.8rem;
+  @include font();
+  color: var(--c-off-white);
+  .container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-items: center;
+  }
+}
+.banner_link {
+  @include font(1.4rem, 2.4rem, 600);
+  text-decoration: underline;
+  margin-left: 0.8rem;
+}
+.banner_select select {
+  display: inline-block;
+  @include font(1.4rem, 3rem);
+  color: var(--c-off-white);
+  background-color: var(--bg-black-transparent);
+  border: none;
+  width: 7.8rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  outline: none;
+}
+////////////////////////////////////////////////
+/// HEADER
+////////////
+.header-primary {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  .container {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    padding: 4.3rem 0 1.9rem;
+    color: var(--c-black);
+    .logo {
+      margin-right: auto;
+    }
+  }
+}
+.main_nav {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  .header_nav {
+    margin-right: 14.8rem;
+  }
+}
+.header_navLink {
+  @include font(1.6rem, 2.4rem);
+  border-bottom: 1px solid transparent;
+  transition: var(--animation);
+  &.active {
+    border-bottom: 1px solid;
+    margin-bottom: -1px;
+  }
+}
+.header_nav {
+  display: flex;
+  gap: 4.8rem;
+}
+.header_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  position: relative;
+}
+.header_form {
+  max-width: 24.3rem;
+  background-color: var(--bg-gray);
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.header_input {
+  border: none;
+  outline: none;
+  background: inherit;
+  max-width: 19.7rem;
+  &::placeholder {
+    font-size: 1.2rem;
+  }
+}
+.header_iconsWrapper {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+.wishlistIcon,
+.cartIcon {
+  position: relative;
+}
+.wishlistCounter,
+.cartCounter {
+  position: absolute;
+  top: -0.1rem;
+  right: 0.1rem;
+  background-color: var(--c-primary);
+  color: white;
+  @include font(1.2rem, 1.8rem);
+  border-radius: 50%;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userIcon {
+  transition: var(--animation);
+}
+.userIcon--selected {
+  background-color: var(--c-primary);
+  border-radius: 50%;
+  padding: 0.5rem;
+  & * {
+    stroke: var(--c-white);
+  }
+}
+.header_userNavList {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  flex-direction: column;
+  gap: 1.3rem;
+  background-color: var(--bg-black-transparent);
+  border-radius: var(--radius);
+  padding: 1.8rem 0;
+  z-index: 2;
+  a {
+    @include font();
+    color: var(--c-off-white);
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    padding: 0 2rem;
+    transition: var(--animation);
+
+    img {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+  }
+  a:hover {
+    color: var(--c-accent);
+  }
+}
+.showNav {
+  display: flex;
+}
+/////////////////////////////////
+/// Mobile navigation
+.mobileNav_btn--menue,
+.mobileNav_btn--close {
+  position: absolute;
+  padding: 0.6rem;
+  border-radius: 50%;
+  top: 9.6rem;
+  right: 3%;
+  display: flex;
+  transition: var(--animation);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+.mobileNav_btn--menue img,
+.mobileNav_btn--close img {
+  width: 4rem;
+  height: 4rem;
+  z-index: 99;
+}
+.sticky {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 7rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  & .container {
+    padding: 0;
+  }
+}
+@media (max-width: 75em) {
+  .header-primary {
+    height: 12rem;
+  }
+  .sticky.header-primary {
+    height: 10rem;
+  }
+  .header-primary .container {
+    position: relative;
+    padding: 2rem 0 4rem;
+  }
+  .sticky.header-primary .container {
+    padding: 0 0 3rem;
+  }
+  .header_nav {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    // padding-left: 1rem;
+  }
+  .header_nav,
+  .header_wrapper {
+    gap: 2rem;
+  }
+  .header_wrapper {
+    transform: translateY(26px);
+  }
+  .sticky .header_wrapper {
+    transform: translateY(7px);
+  }
+  header .container {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 59em) {
+  /* MOBILE NAVIGATION */
+  .mobileNav_btn--menue {
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+  }
+  .sticky.header-primary {
+    height: 8rem;
+  }
+  .logo {
+    transform: translateY(15px);
+  }
+  .header-primary .container {
+    position: static;
+  }
+  .main_nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    transform: translateX(100%);
+    transition: var(--animation);
+  }
+  .main_nav::before {
+    content: "Exclusive";
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    @include font(2.4rem, 2.4rem, 700);
+    font-family: var(--f-inter);
+    letter-spacing: 0.3px;
+    user-select: none;
+  }
+  .header_nav,
+  .header_wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .header_wrapper {
+    flex-direction: column;
+    gap: 3rem;
+    top: 12rem;
+  }
+  .header_form {
+    margin-left: -3rem;
+  }
+  .header_nav {
+    flex-direction: column;
+    top: 26rem;
+  }
+  .header_navLink {
+    font-weight: 600;
+  }
+  .open_nav {
+    #root {
+      overflow-y: hidden;
+    }
+    .main_nav {
+      z-index: 99;
+      transform: translatex(0%);
+    }
+    .mobileNav_btn--menue {
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    .mobileNav_btn--close {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+    }
+  }
+  .header-primary {
+    height: 8rem;
+  }
+  .sticky .mobileNav_btn--menue,
+  .sticky .mobileNav_btn--close {
+    top: 2rem;
+  }
+  .header_userNavList {
+    background-color: black;
+    min-width: 22.4rem;
+  }
+}

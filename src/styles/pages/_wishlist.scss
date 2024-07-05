@@ -1,0 +1,29 @@
+@import "../mixins";
+.wishlist_wrapper {
+  .pdtList {
+    flex-wrap: wrap;
+  }
+}
+.justForU {
+  .pdtList {
+    flex-wrap: nowrap;
+  }
+}
+.wishlist_header {
+  margin: 8rem 0 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wishlist_relatedPdts {
+  position: relative;
+  overflow: hidden;
+  .wishlist_relatedPdts {
+    margin-bottom: 0;
+  }
+  .btn-outline {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
